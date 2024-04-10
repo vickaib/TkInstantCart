@@ -50,6 +50,7 @@ class InstantCart:
         self.master = master
         self.master.title("Instant Cart")
 
+        # experimental list for adding values
         self.items = {
             "Apples": 2.50,
             "Bananas": 1.50,
@@ -103,8 +104,8 @@ class InstantCart:
         self.add_button.grid(row=1, column=4, padx=5, pady=10)
         
         # list output area
-        self.cart_text = tk.Text(self.master, height=15, width=10)
-        self.cart_text.grid(row=2, column=2, columnspan=3, padx=5, sticky="we")
+        self.cart_text = tk.Text(self.master, height=5)
+        self.cart_text.grid(row=2, column=0, columnspan=5, padx=5, sticky="we")
         
         # total price of items added
         self.total_label = tk.Label(self.master, text="Subtotal:")
@@ -123,11 +124,11 @@ class InstantCart:
         if selected_dept == "Dairy":
             self.dept_products = Item.dairy_items
         elif selected_dept == "Produce":
-            self.cart_label.config(text="Selected Produce")
+            self.dept_products = Item.produce_items
         elif selected_dept == "Meat":
-            self.cart_label.config(text="Selected Meat")
+            self.dept_products = Item.meat_items
         elif selected_dept == "Seafood":
-            self.cart_label.config(text="Selected Seafood")
+            self.dept_products = Item.seafood_items
 
         # output items
         row = 3
